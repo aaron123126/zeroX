@@ -56,7 +56,7 @@ class WebviewProvider {
             this.sendMessageToWebview({ type: 'updateTasks', tasks });
         });
     }
-    resolveWebviewView(webviewView, context, _token) {
+    resolveWebviewView(webviewView) {
         this.view = webviewView;
         webviewView.webview.options = {
             enableScripts: true,
@@ -75,7 +75,7 @@ class WebviewProvider {
                     this.stopExecution();
                     break;
                 case 'confirmAction':
-                    await this.executeToolCall(data.toolCall);
+                    await this.handleToolCall(data.toolCall.name, data.toolCall.parameters);
                     break;
                 case 'rejectAction':
                     this.sendAssistantMessage('Action cancelled by user.');

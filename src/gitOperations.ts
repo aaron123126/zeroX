@@ -13,7 +13,7 @@ export class GitOperations {
   }
 
   async commit(message: string, files?: string[]): Promise<string> {
-    let commands = [];
+    const commands = [];
     
     if (files && files.length > 0) {
       commands.push(`git add ${files.join(' ')}`);

@@ -10,7 +10,7 @@ class GitOperations {
         return result.stdout + result.stderr;
     }
     async commit(message, files) {
-        let commands = [];
+        const commands = [];
         if (files && files.length > 0) {
             commands.push(`git add ${files.join(' ')}`);
         }

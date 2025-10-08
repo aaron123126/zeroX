@@ -32,9 +32,7 @@ export class WebviewProvider implements vscode.WebviewViewProvider {
   }
 
   public resolveWebviewView(
-    webviewView: vscode.WebviewView,
-    context: vscode.WebviewViewResolveContext,
-    _token: vscode.CancellationToken
+    webviewView: vscode.WebviewView
   ) {
     this.view = webviewView;
 
@@ -57,7 +55,7 @@ export class WebviewProvider implements vscode.WebviewViewProvider {
           this.stopExecution();
           break;
         case 'confirmAction':
-          await this.executeToolCall(data.toolCall);
+          await this.handleToolCall(data.toolCall.name, data.toolCall.parameters);
           break;
         case 'rejectAction':
           this.sendAssistantMessage('Action cancelled by user.');
@@ -97,7 +95,7 @@ export class WebviewProvider implements vscode.WebviewViewProvider {
     const systemPrompt = this.gemini.getSystemPrompt();
     const tools = this.gemini.getTools();
 
-    const conversationMessages = [
+    const conversationMessages: any[] = [
       { role: 'system', content: systemPrompt },
       ...this.messages,
     ];

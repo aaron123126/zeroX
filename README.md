@@ -4,13 +4,13 @@ A powerful VS Code extension that brings AI-powered code assistance directly int
 
 ## Features
 
-- 🤖 **AI Code Agent**: Intelligent code analysis and generation
-- 📝 **File Operations**: Create, read, update, and delete files
-- 💻 **Terminal Integration**: Execute commands directly
-- 🔍 **Web Search**: Search the web for solutions
-- 🌿 **Git Integration**: Automated commits and status checks
-- ✅ **Task Tracking**: Visual task breakdown for each request
-- 🎨 **Modern UI**: Clean, Cursor-like interface
+-  **AI Code Agent**: Intelligent code analysis and generation
+-  **File Operations**: Create, read, update, and delete files
+-  **Terminal Integration**: Execute commands directly
+-  **Web Search**: Search the web for solutions
+-  **Git Integration**: Automated commits and status checks
+-  **Task Tracking**: Visual task breakdown for each request
+-  **Modern UI**: Clean, Cursor-like interface
 
 ## Setup
 
