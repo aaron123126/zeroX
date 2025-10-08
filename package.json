@@ -1,0 +1,116 @@
+{
+  "name": "zerox-ai-agent",
+  "displayName": "ZeroX - AI Code Agent",
+  "description": "Gemini-powered AI code agent with modern UI",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "zerox.openChat",
+        "title": "ZeroX: Open AI Agent",
+        "icon": "$(robot)"
+      },
+      {
+        "command": "zerox.newConversation",
+        "title": "ZeroX: New Conversation"
+      },
+      {
+        "command": "zerox.stopExecution",
+        "title": "ZeroX: Stop Execution"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "zerox-sidebar",
+          "title": "ZeroX AI Agent",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "zerox-sidebar": [
+        {
+          "type": "webview",
+          "id": "zerox.chatView",
+          "name": "Chat"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "ZeroX",
+      "properties": {
+        "zerox.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Gemini API Key",
+          "order": 1
+        },
+        "zerox.googleCseId": {
+          "type": "string",
+          "default": "",
+          "description": "Google Custom Search Engine ID",
+          "order": 2
+        },
+        "zerox.googleCseApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Custom Search API Key",
+          "order": 3
+        },
+        "zerox.model": {
+          "type": "string",
+          "default": "gemini-2.0-flash-exp",
+          "enum": [
+            "gemini-2.0-flash-exp",
+            "gemini-1.5-pro-latest",
+            "gemini-1.5-flash-latest"
+          ],
+          "description": "Gemini model to use",
+          "order": 4
+        },
+        "zerox.autoExecuteCommands": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically execute commands without confirmation",
+          "order": 5
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.2.0",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.6.0",
+    "uuid": "^13.0.0"
+  }
+}
