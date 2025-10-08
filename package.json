@@ -4,6 +4,10 @@
   "description": "Gemini-powered AI code agent with modern UI",
   "version": "1.0.0",
   "publisher": "your-publisher-name",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aaron123126/zeroX/"
+  },
   "icon": "media/icon.png",
   "engines": {
     "vscode": "^1.85.0"
